@@ -41,10 +41,10 @@ namespace CoffeeShopDB_W_Login.Controllers
             JObject o = JObject.Parse(ApiText);
             ViewBag.Object = o;
 
-            for(int i = 0; i < o["data"]["Children"].Count(); i++)
+            for(int i = 0; i < o["data"]["children"].Count(); i++)
             {
-                string post = $"{o["data"]["Children"][i]["url"]}<br>{o["data"]["Children"][i]["title"]}<br>{o["data"]["Children"][i]["selftext_html"]}<br>";
-                ViewBag.Posts += post;
+                ViewBag.Posts += "<a href='" + o["data"]["children"][i]["data"]["url"] + "'>" + o["data"]["children"][i]["data"]["title"] + "</a><br><br>" + o["data"]["children"][i]["data"]["selftext"] + "<br><br><br>";
+                
             }
             return View("Data");
         }
