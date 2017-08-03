@@ -43,7 +43,7 @@ namespace CoffeeShopDB_W_Login.Controllers
 
             for(int i = 0; i < o["data"]["children"].Count(); i++)
             {
-                ViewBag.Posts += "<a href='" + o["data"]["children"][i]["data"]["url"] + "'>" + o["data"]["children"][i]["data"]["title"] + "</a><br><br>" + o["data"]["children"][i]["data"]["selftext"] + "<br><br><br>";
+                ViewBag.Posts += "<a href='" + o["data"]["children"][i]["data"]["url"] + "'>" + o["data"]["children"][i]["data"]["title"] + "</a><br><br>" + "posted by: " + o["data"]["children"][i]["data"]["author"] + "<br><br>" + o["data"]["children"][i]["data"]["selftext"] + "<br><br><br>";
                 
             }
             return View("Data");
